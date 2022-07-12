@@ -6,7 +6,7 @@
 /*   By: jdutschk <jdutschk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 11:37:06 by jdutschk          #+#    #+#             */
-/*   Updated: 2022/07/12 11:40:58 by jdutschk         ###   ########.fr       */
+/*   Updated: 2022/07/12 12:12:00 by jdutschk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	starting(int *stack_a, int *stack_b, int index_a, int index_b)
 
 void	start_algo(int *stack_a, int *stack_b, int *index_a, int *index_b)
 {
-	p_b(stack_a, stack_b, index_a, index_b);
 	print_stack(stack_a, index_a, "stack a");
 	print_stack(stack_b, index_b, "stack b");
 }
