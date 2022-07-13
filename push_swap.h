@@ -6,7 +6,7 @@
 /*   By: jdutschk <jdutschk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 15:55:10 by jdutschk          #+#    #+#             */
-/*   Updated: 2022/07/12 11:42:46 by jdutschk         ###   ########.fr       */
+/*   Updated: 2022/07/13 12:33:07 by jdutschk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "Libft/libft.h"
 # include "limits.h"
-
 
 //---------tools-------//
 void	print_stack(int *stack, int *j, char *name_stack);
@@ -29,6 +28,7 @@ int		ft_check_argv2(char *str);
 int		check_argv3(char *s);
 int		compare_to_int(char *str);
 int		ft_check_arg1v2(char *str);
+int		ft_check_arg1v3(char *str);
 //-----------init-------------------//
 int		*init_list(int ac, char **argv);
 int		convert_lst_into_tab(char **lst, int *tab);
@@ -41,6 +41,8 @@ int		nbr_cmpt_lst(char *str);
 //---------------start algo---------------//
 void	start_algo(int *stack_a, int *stack_b, int *index_a, int *index_b);
 void	starting(int *stack_a, int *stack_b, int index_a, int index_b);
+int		ft_finish(int *stack_a, int *index_a, int *index_b);
+int		ft_nbr_op_index(int *stack_a, int *index_a);
 //---------------algo---------------//
 void	duplicate(int *new, int *actual, int *index);
 void	p_a(int *stack_a, int *stack_b, int *imax_a, int *imax_b);
