@@ -6,7 +6,7 @@
 /*   By: jdutschk <jdutschk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 15:26:04 by jdutschk          #+#    #+#             */
-/*   Updated: 2022/07/13 12:46:04 by jdutschk         ###   ########.fr       */
+/*   Updated: 2022/07/14 14:14:30 by jdutschk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	r_a(int *stack_a, int *stack_b, int *imax_a, int *imax_b)
 	int	i;
 	int	sauvegarde;
 
-	ft_printf("r_a\n");
+	printf("ra\n");
 	sauvegarde = stack_a[imax_a[0]];
 	i = imax_a[0];
-	tmp = malloc(sizeof(int) * imax_a[0]);
+	tmp = calloc(sizeof(int), imax_a[0] + 10);
 	duplicate(tmp, stack_a, imax_a);
-	while (i != -1)
+	while (i != 0)
 	{
 		stack_a[i] = tmp[i - 1];
 		i--;
