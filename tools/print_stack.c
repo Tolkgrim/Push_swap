@@ -26,3 +26,4 @@ void	print_stack(int *stack, int *j, char *name_stack)
 		x++;
 	}
 }
+
