@@ -6,7 +6,7 @@
 /*   By: jdutschk <jdutschk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 15:55:10 by jdutschk          #+#    #+#             */
-/*   Updated: 2022/07/13 12:33:07 by jdutschk         ###   ########.fr       */
+/*   Updated: 2022/07/15 13:49:25 by jdutschk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,12 @@ int		nbr_cmpt_lst_mutiple(char **argv);
 int		nbr_cmpt_lst(char *str);
 
 //---------------start algo---------------//
-void	start_algo(int *stack_a, int *stack_b, int *index_a, int *index_b);
+void	choose_algo(int *stack_a, int *stack_b, int *index_a, int *index_b);
+void	algo_for_3(int *stack_a, int *stack_b, int *index_a, int *index_b);
 void	starting(int *stack_a, int *stack_b, int index_a, int index_b);
 int		ft_finish(int *stack_a, int *index_a, int *index_b);
 int		ft_nbr_op_index(int *stack_a, int *index_a);
+void	algo_verysmall(int *stack_a, int *stack_b, int *index_a, int *index_b);
 //---------------algo---------------//
 void	duplicate(int *new, int *actual, int *index);
 void	p_a(int *stack_a, int *stack_b, int *imax_a, int *imax_b);

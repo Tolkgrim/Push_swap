@@ -6,7 +6,7 @@
 #    By: jdutschk <jdutschk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 11:24:32 by jdutschk          #+#    #+#              #
-#    Updated: 2022/07/14 08:10:01 by jdutschk         ###   ########.fr        #
+#    Updated: 2022/07/15 13:51:21 by jdutschk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,11 @@ SRC_MAIN = Main/main.c
 
 SRC_TOOLS = tools/print_stack.c
 
-SRC_START = start_algo/starting+start_algo.c
+SRC_START = start_algo/starting+start_algo.c\
+			 start_algo/choose_algo.c\
+			 start_algo/ft_finish.c\
+			 start_algo/algo_verysmall.c\
+			 start_algo/nbr_op_index.c
 
 SRC_ALGO = Algo/duplicate.c\
 		   Algo/p_a.c\
@@ -70,7 +74,7 @@ re : clean all
 
 $(NAME) : $(OBJS)
 		$(RE_LIBFT)
-		@gcc -o $(NAME) $(OBJS) $(LIBFT)
+		@gcc -Wall -Werror -Wextra -o $(NAME) $(OBJS) $(LIBFT)
 clean :
 		@make clean -C Libft
 		@rm -rf $(OBJS)

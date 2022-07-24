@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   r_a.c                                              :+:      :+:    :+:   */
+/*   nbr_op_index.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdutschk <jdutschk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 15:26:04 by jdutschk          #+#    #+#             */
-/*   Updated: 2022/07/24 19:23:41 by jdutschk         ###   ########.fr       */
+/*   Created: 2022/07/15 13:42:45 by jdutschk          #+#    #+#             */
+/*   Updated: 2022/07/15 13:42:57 by jdutschk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	r_ra(int *stack_a, int *stack_b, int *imax_a, int *imax_b)
+int	ft_nbr_op_index(int *stack_a, int *index_a)
 {
-	int	*tmp;
 	int	i;
-	int	sauvegarde;
+	int	cmpt;
+	int	index_cmpt;
 
-	printf("rra\n");
-	sauvegarde = stack_a[imax_a[0]];
-	i = imax_a[0];
-	tmp = calloc(sizeof(int), imax_a[0] + 10);
-	duplicate(tmp, stack_a, imax_a);
-	while (i != 0)
+	if (index_a[0] == -1)
+		return (-1);
+	i = 0;
+	cmpt = stack_a[0];
+	index_cmpt = 0;
+	while (i != index_a[0] + 1)
 	{
-		stack_a[i] = tmp[i - 1];
-		i--;
+		if (cmpt < stack_a[i])
+		{
+			index_cmpt = i;
+			cmpt = stack_a[i];
+		}
+		i++;
 	}
-	stack_a[0] = sauvegarde;
-	free(tmp);
+	return (index_cmpt);
 }
