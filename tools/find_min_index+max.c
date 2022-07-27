@@ -1,20 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   r_rr.c                                             :+:      :+:    :+:   */
+/*   find_min_index+max.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdutschk <jdutschk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/07 15:49:14 by jdutschk          #+#    #+#             */
-/*   Updated: 2022/07/25 15:43:01 by jdutschk         ###   ########.fr       */
+/*   Created: 2022/07/27 19:02:18 by jdutschk          #+#    #+#             */
+/*   Updated: 2022/07/27 19:07:04 by jdutschk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	r_rr(int *stack_a, int *stack_b, int *imax_a, int *imax_b)
+int	find_min_index(int *tab, int *index)
 {
-	ft_printf("rrr\n");
-	r_ra(stack_a, stack_b, imax_a, 0);
-	r_rb(stack_a, stack_b, 0, imax_b);
+	int	i;
+	int	value;
+	int	j;
+
+	i = 0;
+	j = 0;
+	value = tab[0];
+	while (i != index[0] + 1)
+	{
+		if (value > tab[i])
+		{
+			value = tab[i];
+			j = i;
+		}
+		i++;
+	}
+	return (j);
+}
+
+int	find_max_index(int *tab, int *index)
+{
+	int	i;
+	int	value;
+	int	j;
+
+	j = 0;
+	i = 0;
+	value = tab[0];
+	while (i != index[0] + 1)
+	{
+		if (value < tab[i])
+		{
+			value = tab[i];
+			j = i;
+		}
+		i++;
+	}
+	return (j);
 }

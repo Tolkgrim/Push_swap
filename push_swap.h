@@ -6,7 +6,7 @@
 /*   By: jdutschk <jdutschk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 15:55:10 by jdutschk          #+#    #+#             */
-/*   Updated: 2022/07/15 13:49:25 by jdutschk         ###   ########.fr       */
+/*   Updated: 2022/07/27 19:28:23 by jdutschk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@
 
 //---------tools-------//
 void	print_stack(int *stack, int *j, char *name_stack);
-
+void	ft_rotate(int *tab, int *index);
+void	ft_uptade_push_list(int *tab, int *index);
+int		find_max_index(int *tab, int *index);
+int		find_min_index(int *tab, int *index);
+void	push_max_on_top(int *stack_a, int *stack_b, int *index_a, int *index_b);
 //--------------error-------------//
 int		ft_check_errors_start(int ar, char **st);
 int		ft_check_arg1(char *str);
@@ -45,15 +49,20 @@ void	starting(int *stack_a, int *stack_b, int index_a, int index_b);
 int		ft_finish(int *stack_a, int *index_a, int *index_b);
 int		ft_nbr_op_index(int *stack_a, int *index_a);
 void	algo_verysmall(int *stack_a, int *stack_b, int *index_a, int *index_b);
+void	algo_medium(int *stack_a, int *stack_b, int *index_a, int *index_b);
+void	algo_medium2(int *stack_a, int *stack_b, int *index_a, int *index_b);
 //---------------algo---------------//
+int		find_min(int *tab, int *index);
+int		find_max(int *tab, int *index);
 void	duplicate(int *new, int *actual, int *index);
+int		ft_ok(int *stack_a, int *index_a);
 void	p_a(int *stack_a, int *stack_b, int *imax_a, int *imax_b);
 void	p_b(int *stack_a, int *stack_b, int *imax_a, int *imax_b);
-void	r_a(int *stack_a, int *stack_b, int *imax_a, int *imax_b);
-void	r_b(int *stack_a, int *stack_b, int *imax_a, int *imax_b);
+void	r_b(int *stack_a, int *stack_b, int indicator, int *imax_b);
+void	r_a(int *stack_a, int *stack_b, int *imax_a, int indicator);
 void	r_r(int *stack_a, int *stack_b, int *imax_a, int *imax_b);
-void	r_ra(int *stack_a, int *stack_b, int *imax_a, int *imax_b);
-void	r_rb(int *stack_a, int *stack_b, int *imax_a, int *imax_b);
+void	r_ra(int *stack_a, int *stack_b, int *imax_a, int indicator);
+void	r_rb(int *stack_a, int *stack_b, int indicator, int *imax_b);
 void	r_rr(int *stack_a, int *stack_b, int *imax_a, int *imax_b);
 void	s_a(int *stack_a, int *stack_b, int *imax_a, int *imax_b);
 void	s_b(int *stack_a, int *stack_b, int *imax_a, int *imax_b);

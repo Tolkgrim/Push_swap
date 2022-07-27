@@ -6,28 +6,29 @@
 /*   By: jdutschk <jdutschk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 15:26:33 by jdutschk          #+#    #+#             */
-/*   Updated: 2022/07/14 14:14:33 by jdutschk         ###   ########.fr       */
+/*   Updated: 2022/07/25 16:57:08 by jdutschk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	r_b(int *stack_a, int *stack_b, int *imax_a, int *imax_b)
+void	r_b(int *stack_a, int *stack_b, int indicator, int *imax_b)
 {
 	int	*tmp;
 	int	i;
 	int	sauvegarde;
 
-	ft_printf("rb\n");
-	sauvegarde = stack_b[imax_b[0]];
-	i = imax_b[0];
-	tmp = malloc(sizeof(int) * imax_b[0]);
+	if (indicator == 1)
+		ft_printf("rb\n");
+	sauvegarde = stack_b[0];
+	i = 0;
+	tmp = calloc(sizeof(int), imax_b[0] + 10);
 	duplicate(tmp, stack_b, imax_b);
-	while (i != -1)
+	while (i != imax_b[0])
 	{
-		stack_b[i] = tmp[i - 1];
-		i--;
+		stack_b[i] = tmp[i + 1];
+		i++;
 	}
-	stack_b[0] = sauvegarde;
+	stack_b[imax_b[0]] = sauvegarde;
 	free(tmp);
 }

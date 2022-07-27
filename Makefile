@@ -6,22 +6,29 @@
 #    By: jdutschk <jdutschk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/31 11:24:32 by jdutschk          #+#    #+#              #
-#    Updated: 2022/07/15 13:51:21 by jdutschk         ###   ########.fr        #
+#    Updated: 2022/07/27 19:28:13 by jdutschk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
+TRASH = object
+
 LIBFT = Libft/libft.a
 
 SRC_MAIN = Main/main.c
 
-SRC_TOOLS = tools/print_stack.c
+SRC_TOOLS = tools/print_stack.c\
+			tools/ft_rotate.c\
+			tools/find_min+max.c\
+			tools/find_min_index+max.c\
+			tools/raccourci.c
 
 SRC_START = start_algo/starting+start_algo.c\
 			 start_algo/choose_algo.c\
 			 start_algo/ft_finish.c\
 			 start_algo/algo_verysmall.c\
+			 start_algo/algo_medium.c\
 			 start_algo/nbr_op_index.c
 
 SRC_ALGO = Algo/duplicate.c\
@@ -70,14 +77,17 @@ RE_LIBFT = make re -C  Libft
 
 all : $(NAME)
 
-re : clean all
+re : fclean all
 
 $(NAME) : $(OBJS)
 		$(RE_LIBFT)
-		@gcc -Wall -Werror -Wextra -o $(NAME) $(OBJS) $(LIBFT)
+		@rm -rf object
+		@gcc -g -Wall -Werror -Wextra -o $(NAME) $(OBJS) $(LIBFT)
+		@mkdir object
+		@mv $(OBJS) object
 clean :
 		@make clean -C Libft
-		@rm -rf $(OBJS)
+		@rm -rf object
 
 fclean : clean
 	rm -rf $(NAME)

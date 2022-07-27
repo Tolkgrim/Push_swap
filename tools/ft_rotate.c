@@ -1,39 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_b.c                                              :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdutschk <jdutschk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 14:22:01 by jdutschk          #+#    #+#             */
-/*   Updated: 2022/07/25 13:13:42 by jdutschk         ###   ########.fr       */
+/*   Created: 2022/07/25 11:25:44 by jdutschk          #+#    #+#             */
+/*   Updated: 2022/07/25 13:21:18 by jdutschk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	p_b(int *stack_a, int *stack_b, int *imax_a, int *imax_b)
+void	ft_rotate(int *tab, int *index)
 {
-	if (imax_a[0] < 0)
+	int	i;
+	int	j;
+	int	save;
+
+	j = index[0];
+	i = 0;
+	if (j == -1)
 		return ;
-	ft_printf("pb\n");
-	if (imax_b[0] == -1)
+	while (i < j)
 	{
-		stack_b[0] = stack_a[0];
-		imax_b[0]++;
+		save = tab[i];
+		tab[i] = tab[j];
+		tab[j] = save;
+		j--;
+		i++;
 	}
-	else if (imax_b[0] == 0)
+}
+
+void	ft_uptade_push_list(int *tab, int *index)
+{
+	int	*cpy;
+	int	i;
+	int	j;
+
+	cpy = ft_calloc(sizeof(int),10);
+	duplicate(cpy, tab, index);
+	i = 0;
+	j = 1;
+	while (i != index[0] && index[0] != -1)
 	{
-		stack_b[1] = stack_b[0];
-		stack_b[0] = stack_a[0];
-		imax_b[0]++;
+		tab[i] = cpy[j];
+		i++;
+		j++;
 	}
-	else
-	{
-		ft_rotate(stack_b, imax_b);
-		imax_b[0]++;
-		stack_b[imax_b[0]] = stack_a[0];
-		ft_rotate(stack_b, imax_b);
-	}
-	ft_uptade_push_list(stack_a, imax_a);
+	free(cpy);
+	index[0]--;
 }

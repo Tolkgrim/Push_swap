@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   raccourci.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdutschk <jdutschk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 15:04:23 by jdutschk          #+#    #+#             */
-/*   Updated: 2022/07/25 17:05:54 by jdutschk         ###   ########.fr       */
+/*   Created: 2022/07/27 19:25:41 by jdutschk          #+#    #+#             */
+/*   Updated: 2022/07/27 19:35:47 by jdutschk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../push_swap.h"
 
-size_t	ft_strlen(const char *s)
+void	push_max_on_top(int *stack_a, int *stack_b, int *index_a, int *index_b)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
+	while (find_max_index(stack_a, index_a) != 0)
 	{
-		i++;
+		if (find_max_index(stack_a, index_a) <= index_a[0] / 2)
+			r_a(stack_a, stack_b, index_a, 1);
+		else
+			r_ra(stack_a, stack_b, index_a, 1);
 	}
-	return (i);
 }
